@@ -19,7 +19,7 @@ export const SingleCard: React.FC<{ meal: Meal }> = ({ meal }) => {
 				<p className=" leading-relaxed mt-2 text-xs">
 					<p>{meal.strCategoryDescription?.slice(0, 50) + "..."} </p>
 					<Link
-						to="#"
+						to={`category/${meal.strCategory}`}
 						className=" text-indigo-500 inline-flex items-center mt-3"
 					>
 						Learn More

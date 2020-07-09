@@ -1,17 +1,22 @@
 import React from "react";
 import "./css/custom.css";
 import { Home } from "./pages/Home";
-import { Router, RouteComponentProps } from "@reach/router";
-
-let Dash = (props: RouteComponentProps) => <div>Dash</div>;
+import { Router } from "@reach/router";
+import { FooterComponent } from "./components/footer";
+import Nav from "./components/Nav";
+import { Category } from "./pages/Category";
+import { Product } from "./pages/Product";
 
 function App() {
 	return (
 		<div className="App">
+			<Nav />
 			<Router>
 				<Home path="/" />
-				<Dash path="dashboard" />
+				<Category path="category/:id" />
+				<Product path="product/:id" />
 			</Router>
+			<FooterComponent />
 		</div>
 	);
 }

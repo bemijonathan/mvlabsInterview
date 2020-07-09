@@ -1,0 +1,25 @@
+import React from "react";
+import { Link } from "@reach/router";
+import { Meal } from "../pages/Home";
+
+export const productCard: React.FC<{ meal: Meal }> = ({ meal }) => {
+	return (
+		<>
+			<div className="p-4 __product_card w-1/4">
+				<Link to="#" className="block relative h-48 rounded overflow-hidden">
+					<img
+						alt="ecommerce"
+						className="object-cover object-center w-full h-full block"
+						src={meal.strMealThumb}
+					/>
+				</Link>
+				<div className="mt-4">
+					<h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+						CATEGORY
+					</h3>
+					<h2 className="text-gray-900 title-font text-xs">{meal.strMeal}</h2>
+				</div>
+			</div>
+		</>
+	);
+};

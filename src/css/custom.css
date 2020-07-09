@@ -1,8 +1,30 @@
 .__nav,
-.__overlay {
+.__overlay,
+footer {
 	background-color: #f56565;
 }
 
+.__product_card:hover img {
+	filter: grayscale(100%);
+	transition: ease-in 0.5s;
+	transform: scale(1.1);
+}
+.__banner_content {
+	background-color: rgba(128, 128, 128, 0.623);
+	padding: 12px;
+	border-radius: 12px;
+}
+.__banner {
+	background-image: url(https://images.pexels.com/photos/4553123/pexels-photo-4553123.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.__layer_shop {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
 .__card {
 	min-width: 350px;
 	background: linear-gradient(#f56565, rgba(0, 0, 0, 0));
