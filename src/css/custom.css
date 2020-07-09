@@ -1,9 +1,11 @@
-.__nav {
+.__nav,
+.__overlay {
 	background-color: #f56565;
 }
 
 .__card {
 	min-width: 350px;
+	background: linear-gradient(#f56565, rgba(0, 0, 0, 0));
 }
 .lds-dual-ring {
 	display: inline-block;

@@ -30,17 +30,23 @@ export const Home: React.FC<RouteComponentProps> = () => {
 			<Nav />
 			<Banner />
 			{/* {JSON.stringify(data)} */}
-			{loading ? (
-				<div>
-					<div className="lds-dual-ring"></div>
-				</div>
-			) : errors ? (
-				"an Error Occured..."
-			) : (
-				<div className=" container mx-auto  px-5 flex overflow-x-scroll w-full">
-					{SingleCards()}
-				</div>
-			)}
+			<h1 className="container mx-auto  px-5 text-3xl font-bold mb-3">
+				Categories
+			</h1>
+			<div className=" container mx-auto  px-5 flex overflow-x-scroll w-full">
+				{loading ? (
+					<div className="absolute w-full h-full flex items-center justify-center bg-red-200 __overlay">
+						<div>
+							<div className="lds-dual-ring"></div>
+							<h2 className="text-white font-bold"> Loading </h2>
+						</div>
+					</div>
+				) : errors ? (
+					"an Error Occured..."
+				) : (
+					SingleCards()
+				)}
+			</div>
 		</div>
 	);
 };
