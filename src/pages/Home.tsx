@@ -49,7 +49,7 @@ export const Home: React.FC<RouteComponentProps> = () => {
 	);
 
 	const SingleCards = () =>
-		data.map((e: Meal, index: number) => {
+		(data as Meal[]).map((e: Meal, index: number) => {
 			return <SingleCard meal={e} key={index} />;
 		});
 	return (

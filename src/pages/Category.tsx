@@ -16,7 +16,7 @@ export const Category: React.FC<RouteParams> = (props) => {
 	);
 
 	const SingleCards = () =>
-		data.map((e: Meal, index: number) => {
+		(data as Meal[]).map((e: Meal, index: number) => {
 			return <Products meal={e} key={index} />;
 		});
 
