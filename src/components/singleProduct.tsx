@@ -1,5 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Meal } from "../pages/Home";
+import {
+	addToStorage,
+	itemExists,
+	removeFromStorage,
+} from "../utils/localstorage";
 
 export const SingleProduct: React.FC<{ meal: Meal }> = (
 	props: React.PropsWithChildren<{
@@ -7,6 +12,20 @@ export const SingleProduct: React.FC<{ meal: Meal }> = (
 	}>
 ) => {
 	const [showMore, setShowMore] = useState<boolean>(false);
+	const [active, setActive] = useState<boolean>(false);
+
+	useEffect(() => {
+		//check if item is in local storage and set active if active
+		setActive(itemExists(props.meal.idMeal));
+	}, [setActive, props.meal.idMeal]);
+
+	const changeFavourite = () => {
+		if (!active) addToStorage(props.meal);
+		else removeFromStorage(props.meal.idMeal);
+		setActive(!active);
+	};
+
+	// addToStorage
 	return (
 		<section className="text-gray-700 body-font overflow-hidden">
 			{/* {JSON.stringify(props)} */}
@@ -45,20 +64,23 @@ export const SingleProduct: React.FC<{ meal: Meal }> = (
 								? props.meal.strInstructions?.slice(0, 1000) + "...."
 								: props.meal.strInstructions}
 						</p>
-						<button
-							onClick={(e) => setShowMore(!showMore)}
-							className="rounded h-10 px-5 bg-red-500 text-white"
-						>
-							{!showMore ? "Read More" : "Hide More"}
-						</button>
+
 						<div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5"></div>
 						<div className="flex">
-							<span className="title-font font-medium text-2xl text-gray-900">
-								$58.00
-							</span>
-							<button className="ml-auto rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+							<div>
+								<button
+									onClick={(e) => setShowMore(!showMore)}
+									className="rounded h-10 px-5 bg-red-500 text-white"
+								>
+									{!showMore ? "Read More" : "Hide More"}
+								</button>
+							</div>
+							<button
+								onClick={() => changeFavourite()}
+								className="ml-auto rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"
+							>
 								<svg
-									fill="currentColor"
+									fill={active ? "red" : "grey"}
 									strokeLinecap="round"
 									strokeLinejoin="round"
 									strokeWidth="2"

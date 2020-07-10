@@ -26,9 +26,9 @@ export const FooterComponent: React.FC = () => {
 					<Link to="#" className="text-gray-500">
 						<svg
 							fill="white"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth="2"
 							className="w-5 h-5"
 							viewBox="0 0 24 24"
 						>
@@ -38,9 +38,9 @@ export const FooterComponent: React.FC = () => {
 					<Link to="#" className="ml-3 text-gray-500">
 						<svg
 							fill="white"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth="2"
 							className="w-5 h-5"
 							viewBox="0 0 24 24"
 						>
@@ -51,9 +51,9 @@ export const FooterComponent: React.FC = () => {
 						<svg
 							fill="none"
 							stroke="white"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth="2"
 							className="w-5 h-5"
 							viewBox="0 0 24 24"
 						>
@@ -65,9 +65,9 @@ export const FooterComponent: React.FC = () => {
 						<svg
 							fill="white"
 							stroke="white"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="0"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth="0"
 							className="w-5 h-5"
 							viewBox="0 0 24 24"
 						>

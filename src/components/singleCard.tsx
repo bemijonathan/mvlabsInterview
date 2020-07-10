@@ -16,7 +16,7 @@ export const SingleCard: React.FC<{ meal: Meal }> = ({ meal }) => {
 				<h2 className="text-xl text-gray-900 mt-5">
 					<b> {meal.strCategory}</b>
 				</h2>
-				<p className=" leading-relaxed mt-2 text-xs">
+				<div className=" leading-relaxed mt-2 text-xs">
 					<p>{meal.strCategoryDescription?.slice(0, 50) + "..."} </p>
 					<Link
 						to={`category/${meal.strCategory}`}
@@ -35,7 +35,7 @@ export const SingleCard: React.FC<{ meal: Meal }> = ({ meal }) => {
 							<path d="M5 12h14M12 5l7 7-7 7"></path>
 						</svg>
 					</Link>
-				</p>
+				</div>
 			</div>
 		</div>
 	);

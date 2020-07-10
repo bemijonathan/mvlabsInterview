@@ -5,7 +5,7 @@ import { Meal } from "../pages/Home";
 export const productCard: React.FC<{ meal: Meal }> = ({ meal }) => {
 	return (
 		<>
-			<div className="p-4 __product_card w-1/4">
+			<div className="p-4 __product_card">
 				<Link
 					to={`/product/${meal.idMeal}`}
 					className="block relative h-48 rounded overflow-hidden"

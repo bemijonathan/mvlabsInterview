@@ -18,7 +18,11 @@ export const fetchResources = (
 			try {
 				const response = await fetch(url);
 				let a = await response.json();
-				setData(a[type]);
+				if (a[type]) {
+					setData(a[type]);
+				} else {
+					setData([]);
+				}
 				console.log(a[type]);
 				setLoading(false);
 			} catch (error) {
