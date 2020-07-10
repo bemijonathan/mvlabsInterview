@@ -1,7 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
 .__nav,
 .__overlay,
 footer {
 	background-color: #f56565;
+}
+
+body {
+	font-family: "Poppins", sans-serif !important;
 }
 
 .__product_card:hover img {
