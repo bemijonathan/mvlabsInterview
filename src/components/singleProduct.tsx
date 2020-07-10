@@ -32,7 +32,7 @@ export const SingleProduct: React.FC<{ meal: Meal }> = (
 			<div className="container px-5 py-24 mx-auto">
 				<div className="lg:w-5/6 mx-auto flex items-center flex-wrap">
 					<img
-						alt="ecommerce"
+						alt="Loading..."
 						className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
 						src={props.meal.strMealThumb}
 					/>

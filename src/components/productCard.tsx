@@ -11,7 +11,7 @@ export const productCard: React.FC<{ meal: Meal }> = ({ meal }) => {
 					className="block relative h-48 rounded overflow-hidden"
 				>
 					<img
-						alt="ecommerce"
+						alt=""
 						className="object-cover object-center w-full h-full block"
 						src={meal.strMealThumb}
 					/>

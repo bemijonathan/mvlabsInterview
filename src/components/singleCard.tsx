@@ -7,7 +7,7 @@ export const SingleCard: React.FC<{ meal: Meal }> = ({ meal }) => {
 		<div className="p-4 mb-6 __card flex items-center mr-6 rounded">
 			<div className="rounded-lg h-64 overflow-hidden">
 				<img
-					alt="content"
+					alt="Loading...."
 					className="object-contain object-center h-full w-full"
 					src={meal.strCategoryThumb}
 				/>
