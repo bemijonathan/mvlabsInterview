@@ -25,7 +25,7 @@ export const ShopLayer: React.FC = () => {
 				<div className="flex flex-wrap -m-4">
 					{list.map((e, i) => {
 						return (
-							<div className="p-4 lg:w-1/3 text-white" key={i}>
+							<div className="p-4 lg:w-1/3 w-full text-white" key={i}>
 								<div
 									className="h-full px-8 pt-16 pb-24 rounded-lg __layer_shop overflow-hidden text-center relative"
 									style={{ backgroundImage: `url(${e.img})` }}
