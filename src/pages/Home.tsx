@@ -12,6 +12,7 @@ export interface Meal {
 	strCategoryDescription?: string;
 	strCategory?: string;
 	strMealThumb?: string;
+	strInstructions?: string;
 }
 
 // let a = {

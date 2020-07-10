@@ -9,7 +9,7 @@ export const fetchResources = (
 	type: "categories" | "meals"
 ): output => {
 	const [data, setData] = useState<Meal | Meal[]>([]);
-	const [Loading, setLoading] = useState<boolean>(false);
+	const [Loading, setLoading] = useState<boolean>(true);
 	const [Errors, setError] = useState<boolean>(false);
 
 	useEffect(() => {
