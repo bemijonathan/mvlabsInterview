@@ -28,7 +28,7 @@ const Nav: React.FC = () => {
 						onSubmit={(e) => Submit(e)}
 					>
 						<input
-							className="bg-gray-100 rounded mr-4 border border-gray-400 focus:outline-none focus:border-red-500 text-base px-4"
+							className="bg-gray-100 rounded mr-4 border border-gray-400 focus:outline-none focus:border-red-500 w-full px-4"
 							placeholder="Placeholder"
 							type="search"
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -37,7 +37,7 @@ const Nav: React.FC = () => {
 						/>
 						<button
 							type="submit"
-							className="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0"
+							className="inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-0"
 						>
 							Button
 						</button>

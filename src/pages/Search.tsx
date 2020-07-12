@@ -21,8 +21,8 @@ export const Search: React.FC<RouteParams> = (props) => {
 	const SingleCards = () =>
 		(data as Meal[]).map((e: Meal, index: number) => {
 			return (
-				<div className="w-1/4">
-					<Products meal={e} key={index} />
+				<div className="md:w-1/4 w-full" key={index}>
+					<Products meal={e} />
 				</div>
 			);
 		});
