@@ -7,14 +7,16 @@ import {
 } from "../store/actions";
 import { connect } from "react-redux";
 
-type proptypes = {
+type singleProductTypes = {
 	addToFavourite: Function;
 	meal: Meal;
 	meals: Meal[];
 	removeFromStorage: Function;
 };
 
-const SingleProduct: React.FC<proptypes> = (props: proptypes) => {
+const SingleProduct: React.FC<singleProductTypes> = (
+	props: singleProductTypes
+) => {
 	const [showMore, setShowMore] = useState<boolean>(false);
 	const [active, setActive] = useState<boolean>(false);
 

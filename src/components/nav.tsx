@@ -3,11 +3,11 @@ import { Link, navigate } from "@reach/router";
 import { connect } from "react-redux";
 import { Meal } from "../pages/home";
 
-type proptypes = {
+type navProps = {
 	length?: number;
 };
 
-const Nav: React.FC<proptypes> = (props) => {
+const Nav: React.FC<navProps> = (props) => {
 	const [term, setTerm] = useState<string>("");
 
 	const Submit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -37,7 +37,7 @@ const Nav: React.FC<proptypes> = (props) => {
 					</nav>
 					<form
 						className="flex md:flex-no-wrap flex-wrap md:justify-start justify-center"
-						onSubmit={(e) => Submit(e)}
+						onSubmit={Submit}
 					>
 						<input
 							className="bg-gray-100 rounded md:mr-4 xd:mb-3 border border-gray-400 focus:outline-none focus:border-red-500 w-full px-4"
