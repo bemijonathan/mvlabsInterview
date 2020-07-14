@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-import { Meal } from "../pages/Home";
+import { Meal } from "../pages/home";
 
 export const productCard: React.FC<{ meal: Meal }> = ({ meal }) => {
 	return (

@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Link, navigate } from "@reach/router";
+import { connect } from "react-redux";
+import { Meal } from "../pages/home";
 
-const Nav: React.FC = () => {
+type proptypes = {
+	length?: number;
+};
+
+const Nav: React.FC<proptypes> = (props) => {
 	const [term, setTerm] = useState<string>("");
 
 	const Submit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -21,6 +27,9 @@ const Nav: React.FC = () => {
 					<nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
 						<Link to="/favourites" className="mr-5 text-white">
 							Favourites
+							<span className="bg-white h-8 w-8 rounded-full text-sm px-2 text-red-500">
+								{props.length}
+							</span>
 						</Link>
 					</nav>
 					<form
@@ -37,7 +46,7 @@ const Nav: React.FC = () => {
 						/>
 						<button
 							type="submit"
-							className="inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-0"
+							className="inline-flex items-center text-white border-2 border-white py-1 px-3 focus:outline-none hover:bg-white hover:text-red-500 rounded text-base mt-0"
 						>
 							Button
 						</button>
@@ -48,4 +57,8 @@ const Nav: React.FC = () => {
 	);
 };
 
-export default Nav;
+const mapStateToProps = (state: Meal[]): { length: number } => ({
+	length: state.length,
+});
+
+export default connect(mapStateToProps)(Nav);

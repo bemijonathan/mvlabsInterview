@@ -1,34 +1,43 @@
-import React, { useState, useEffect } from "react";
-import { Meal } from "../pages/Home";
+import React, { useState, useEffect, Dispatch } from "react";
+import { Meal } from "../pages/home";
 import {
-	addToStorage,
-	itemExists,
-	removeFromStorage,
-} from "../utils/localstorage";
+	addToFavourites,
+	favouriteAction,
+	removeFormFavourites,
+} from "../store/actions";
+import { connect } from "react-redux";
 
-export const SingleProduct: React.FC<{ meal: Meal }> = (
-	props: React.PropsWithChildren<{
-		meal: Meal;
-	}>
-) => {
+type proptypes = {
+	addToFavourite: Function;
+	meal: Meal;
+	meals: Meal[];
+	removeFromStorage: Function;
+};
+
+function SingleProduct(props: proptypes) {
 	const [showMore, setShowMore] = useState<boolean>(false);
 	const [active, setActive] = useState<boolean>(false);
 
 	useEffect(() => {
 		//check if item is in local storage and set active if active
-		setActive(itemExists(props.meal.idMeal));
-	}, [setActive, props.meal.idMeal]);
+		let x = props.meals.find((e: Meal) => e.idMeal === props.meal.idMeal);
+		if (x) {
+			setActive(true);
+		}
+	}, [setActive, props.meal.idMeal, props.meals]);
 
 	const changeFavourite = () => {
-		if (!active) addToStorage(props.meal);
-		else removeFromStorage(props.meal.idMeal);
-		setActive(!active);
+		if (!active) {
+			props.addToFavourite(props.meal);
+		} else {
+			props.removeFromStorage(props.meal.idMeal);
+			setActive(!active);
+		}
 	};
 
 	// addToStorage
 	return (
 		<section className="text-gray-700 body-font overflow-hidden">
-			{/* {JSON.stringify(props)} */}
 			<div className="container px-5 py-24 mx-auto">
 				<div className="lg:w-5/6 mx-auto flex items-center flex-wrap">
 					<img
@@ -69,14 +78,14 @@ export const SingleProduct: React.FC<{ meal: Meal }> = (
 						<div className="flex">
 							<div>
 								<button
-									onClick={(e) => setShowMore(!showMore)}
+									onClick={() => setShowMore(!showMore)}
 									className="rounded h-10 px-5 bg-red-500 text-white"
 								>
 									{!showMore ? "Read More" : "Hide More"}
 								</button>
 							</div>
 							<button
-								onClick={() => changeFavourite()}
+								onClick={changeFavourite}
 								className="ml-auto rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"
 							>
 								<svg
@@ -96,4 +105,18 @@ export const SingleProduct: React.FC<{ meal: Meal }> = (
 			</div>
 		</section>
 	);
-};
+}
+const mapDispatchToProps = (dispatch: Dispatch<favouriteAction>) => ({
+	addToFavourite(meal: Meal) {
+		dispatch(addToFavourites(meal));
+	},
+	removeFromStorage(meal: string) {
+		dispatch(removeFormFavourites(meal));
+	},
+});
+
+const mapStateToProps = (state: Meal[]) => ({
+	meals: state,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleProduct);

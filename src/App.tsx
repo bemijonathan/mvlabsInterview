@@ -1,13 +1,15 @@
 import React from "react";
 import "./css/custom.css";
-import { Home } from "./pages/Home";
+import { Home } from "./pages/home";
 import { Router, RouteComponentProps } from "@reach/router";
 import { FooterComponent } from "./components/footer";
-import Nav from "./components/Nav";
-import { Category } from "./pages/Category";
-import { Product } from "./pages/Product";
-import { Favourites } from "./pages/Favourites";
-import { Search } from "./pages/Search";
+import Nav from "./components/nav";
+import { Category } from "./pages/category";
+import { Product } from "./pages/product";
+import Favourites from "./pages/favourites";
+import { Search } from "./pages/search";
+import { store } from "./store";
+import { Provider } from "react-redux";
 
 const NotFound: React.FC<RouteComponentProps> = () => {
 	return (
@@ -20,16 +22,18 @@ const NotFound: React.FC<RouteComponentProps> = () => {
 function App() {
 	return (
 		<div className="App">
-			<Nav />
-			<Router>
-				<NotFound default={true} />
-				<Home path="/" />
-				<Category path="category/:id" />
-				<Product path="product/:id" />
-				<Favourites path="favourites" />
-				<Search path="search" />
-			</Router>
-			<FooterComponent />
+			<Provider store={store}>
+				<Nav />
+				<Router>
+					<NotFound default={true} />
+					<Home path="/" />
+					<Category path="category/:id" />
+					<Product path="product/:id" />
+					<Favourites path="favourites" />
+					<Search path="search" />
+				</Router>
+				<FooterComponent />
+			</Provider>
 		</div>
 	);
 }

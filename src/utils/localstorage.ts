@@ -1,4 +1,4 @@
-import { Meal } from "../pages/Home";
+import { Meal } from "../pages/home";
 
 export const removeFromStorage = (mealId: string) => {
 	const items = getAllItems();

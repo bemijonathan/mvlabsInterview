@@ -2,8 +2,8 @@ import React from "react";
 import { RouteComponentProps } from "@reach/router";
 import { fetchResources as useFetch } from "../customhooks/fetchResources";
 import { Loading } from "../components/Loading";
-import { SingleProduct } from "../components/singleProduct";
-import { Meal } from "./Home";
+import SingleProduct from "../components/singleProduct";
+import { Meal } from "./home";
 
 interface RouteParams extends RouteComponentProps {
 	id?: string;

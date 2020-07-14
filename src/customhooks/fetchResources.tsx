@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useState } from "react";
-import { Meal } from "../pages/Home";
+import { Meal } from "../pages/home";
 
 type output = [Meal[] | Meal, boolean, boolean];
 
