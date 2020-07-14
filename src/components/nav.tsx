@@ -12,7 +12,10 @@ const Nav: React.FC<proptypes> = (props) => {
 
 	const Submit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		navigate("search?=" + term);
+		if (term.trim().length) {
+			navigate("/search?=" + term);
+			setTerm("");
+		}
 	};
 	return (
 		<div>
@@ -22,22 +25,22 @@ const Nav: React.FC<proptypes> = (props) => {
 						to="/"
 						className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
 					>
-						<span className="ml-3 text-xl text-white">tailblocks</span>
+						<span className="md:ml-3 text-xl text-white">tailblocks</span>
 					</Link>
 					<nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-						<Link to="/favourites" className="mr-5 text-white">
+						<Link to="/favourites" className="md:mr-5 text-white">
 							Favourites
-							<span className="bg-white h-8 w-8 rounded-full text-sm px-2 text-red-500">
+							<span className="ml-3 bg-white h-8 w-8 rounded-full text-sm px-2 text-red-500">
 								{props.length}
 							</span>
 						</Link>
 					</nav>
 					<form
-						className="flex md:justify-start justify-center"
+						className="flex md:flex-no-wrap flex-wrap md:justify-start justify-center"
 						onSubmit={(e) => Submit(e)}
 					>
 						<input
-							className="bg-gray-100 rounded mr-4 border border-gray-400 focus:outline-none focus:border-red-500 w-full px-4"
+							className="bg-gray-100 rounded md:mr-4 xd:mb-3 border border-gray-400 focus:outline-none focus:border-red-500 w-full px-4"
 							placeholder="Placeholder"
 							type="search"
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

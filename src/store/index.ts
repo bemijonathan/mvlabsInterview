@@ -12,36 +12,3 @@ export const store: Store<Meal[], favouriteAction> = createStore(
 	(window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
 		(window as any).__REDUX_DEVTOOLS_EXTENSION__()
 );
-
-// interface IReduxState {}
-
-// const mstp = (state, {}): IReduxState => {return {}};
-
-// interface IReduxAction {}
-
-// const mdtp = (dispatch, {}): IReduxAction => {return {}};
-
-// export default connect(mstp,mdtp)();
-
-// import React, { Component } from 'react'
-// import { connect } from 'react-redux'
-
-// export class index extends Component {
-//     render() {
-//         return (
-//             <div>
-
-//             </div>
-//         )
-//     }
-// }
-
-// const mapStateToProps = (state) => ({
-
-// })
-
-// const mapDispatchToProps = {
-
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(index)

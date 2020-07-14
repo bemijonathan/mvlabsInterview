@@ -23,10 +23,8 @@ export const fetchResources = (
 				} else {
 					setData([]);
 				}
-				console.log(a[type]);
 				setLoading(false);
 			} catch (error) {
-				console.log(error);
 				setLoading(false);
 				setError(true);
 			}

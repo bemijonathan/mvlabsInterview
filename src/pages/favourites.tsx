@@ -15,7 +15,7 @@ interface propsType extends RouteComponentProps {
 	removeItem: Function;
 }
 
-const favourites = (props: propsType) => {
+const favourites: React.FC<propsType> = (props: propsType) => {
 	const removeItem = (id: string) => {
 		props.removeItem(id);
 	};

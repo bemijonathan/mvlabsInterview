@@ -18,7 +18,7 @@ export const Category: React.FC<RouteParams> = (props) => {
 	const SingleCards = () =>
 		(data as Meal[]).map((e: Meal, index: number) => {
 			return (
-				<div className="w-1/4" key={index}>
+				<div className="md:w-1/4 w-full" key={index}>
 					<Products meal={e} />;
 				</div>
 			);
@@ -30,7 +30,7 @@ export const Category: React.FC<RouteParams> = (props) => {
 				Category {props.id}
 			</h1>
 			<div
-				className="flex flex-wrap container mx-auto items-center justify-between relative"
+				className="flex flex-wrap container mx-auto items-center relative"
 				style={{ minHeight: "350px" }}
 			>
 				{loading ? <Loading /> : errors ? "an Error Occured..." : SingleCards()}

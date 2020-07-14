@@ -6,26 +6,26 @@ import {
 	clearStorage,
 	addToStorage,
 } from "../utils/localstorage";
+import { actionTypes } from "./actionTypes";
 
 export const favoritesReducer = (
 	state: Meal[] = getAllItems(),
 	action: favouriteAction
 ): Meal[] => {
 	switch (action.type) {
-		case "REMOVE_FROM_FAVOURITE":
+		case actionTypes.REMOVE_FROM_FAVOURITE:
 			removeFromStorage(`${action.payload}`);
 			return [...getAllItems()];
 
-		case "ADD_TO_FAVOURITE":
+		case actionTypes.ADD_TO_FAVOURITE:
 			addToStorage(action.payload as Meal);
 			return [...getAllItems()];
 
-		case "REMOVE_ALL_FAVOURITE":
+		case actionTypes.REMOVE_ALL_FAVOURITE:
 			clearStorage();
 			return [];
 
 		default:
-			console.log("nothing");
 			return [...state];
 	}
 };

@@ -12,17 +12,6 @@ export const clearStorage = () => {
 	localStorage.clear();
 };
 
-export const itemExists = (mealId: string): boolean => {
-	const items = getAllItems();
-	const item = items.find((e) => {
-		return e.idMeal === mealId;
-	});
-
-	console.log(item, items);
-	if (item) return true;
-	else return false;
-};
-
 export const getAllItems = (): Meal[] => {
 	const meals = localStorage.getItem("favourites");
 	if (meals) {

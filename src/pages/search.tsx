@@ -12,12 +12,10 @@ interface RouteParams extends RouteComponentProps {
 
 export const Search: React.FC<RouteParams> = (props) => {
 	let term = props.location?.search?.replace("?=", "");
-	console.log(term);
 	const [data, loading, errors] = UseFetch(
 		"https://www.themealdb.com/api/json/v1/1/search.php?s=" + term,
 		"meals"
 	);
-
 	const SingleCards = () =>
 		(data as Meal[]).map((e: Meal, index: number) => {
 			return (

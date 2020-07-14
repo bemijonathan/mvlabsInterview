@@ -14,7 +14,7 @@ type proptypes = {
 	removeFromStorage: Function;
 };
 
-function SingleProduct(props: proptypes) {
+const SingleProduct: React.FC<proptypes> = (props: proptypes) => {
 	const [showMore, setShowMore] = useState<boolean>(false);
 	const [active, setActive] = useState<boolean>(false);
 
@@ -78,7 +78,7 @@ function SingleProduct(props: proptypes) {
 						<div className="flex">
 							<div>
 								<button
-									onClick={() => setShowMore(!showMore)}
+									onClick={() => setShowMore((showMore) => !showMore)}
 									className="rounded h-10 px-5 bg-red-500 text-white"
 								>
 									{!showMore ? "Read More" : "Hide More"}
@@ -105,7 +105,7 @@ function SingleProduct(props: proptypes) {
 			</div>
 		</section>
 	);
-}
+};
 const mapDispatchToProps = (dispatch: Dispatch<favouriteAction>) => ({
 	addToFavourite(meal: Meal) {
 		dispatch(addToFavourites(meal));
